@@ -8,7 +8,7 @@ The purpose is to make the project easier to review without publishing proprieta
 
 The evidence should be considered collectively. Individual screenshots, database tables or resource names demonstrate technical context and deployment, but are not presented independently as proof of authorship.
 
----
+----
 
 # Evidence Map
 
