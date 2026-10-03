@@ -329,6 +329,11 @@ Examples of persistent state include:
 # Engineering Evidence
 
 The repository is designed to document not only **what the server contains**, but also **how it was developed and debugged**.
+## Engineering Evidence Index
+
+A reviewer-focused map connecting the project's main engineering claims to the relevant case studies, development history, technical challenges and deployment evidence.
+
+[Engineering Evidence Index](evidence/evidence-index.md)
 
 ## Development Timeline
 
