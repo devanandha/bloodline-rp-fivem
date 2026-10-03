@@ -198,3 +198,117 @@ Bloodline RP follows a modular resource architecture.
      ├── Tent Storage
      ├── NPC Marketplace
      └── TDM
+```
+
+More detailed architecture documentation will be maintained in the `/docs` and `/architecture` sections of this repository.
+
+---
+
+## Development Approach
+
+Development followed an iterative workflow:
+
+`Requirement → Design → Implementation → Integration → Testing → Debugging → Validation → Deployment`
+
+Individual systems frequently required multiple revisions after testing them against real FiveM/QBCore behaviour.
+
+The project therefore represents not only feature implementation, but also practical experience in multiplayer state management, persistent data, resource integration, gameplay logic, UI integration, troubleshooting and server operations.
+
+---
+
+## Community & Operations
+
+Bloodline RP progressed beyond a local development environment into an operational multiplayer community.
+
+The project included:
+
+- Server deployment and administration
+- Discord-based community management
+- Player onboarding
+- Whitelist/application management
+- Live troubleshooting
+- Resource updates
+- Gameplay testing
+- Ongoing server configuration
+
+Technical and community evidence will be documented separately in this repository.
+
+---
+
+## Repository Scope
+
+The complete Bloodline RP production source code is **not publicly distributed**.
+
+Bloodline RP contains custom production systems developed specifically for the live server. The complete implementation is maintained privately to protect proprietary implementation details, server security and the integrity of custom gameplay systems.
+
+This repository therefore focuses on:
+
+- System architecture
+- Engineering decisions
+- Development methodology
+- Technical case studies
+- Debugging and problem solving
+- Deployment evidence
+- Demonstrations
+- Sanitised technical documentation
+
+Where appropriate, diagrams and illustrative examples may be provided without exposing production implementation.
+
+---
+
+## Third-Party Components & Attribution
+
+Bloodline RP is built within the wider FiveM and QBCore ecosystem and integrates selected third-party resources.
+
+Third-party frameworks, libraries, maps, assets and resources remain the work of their respective authors.
+
+This portfolio distinguishes between:
+
+- **Custom Bloodline systems**
+- **Modified or integrated resources**
+- **Third-party infrastructure and dependencies**
+
+No third-party component is represented as original Bloodline development.
+
+---
+
+## Security & Privacy
+
+Public documentation intentionally excludes:
+
+- Server credentials
+- Database passwords
+- API keys and tokens
+- FiveM/Cfx license keys
+- Security configuration
+- Webhooks
+- Private player information
+- Player identifiers
+- Production database records
+- Proprietary production source code
+
+---
+
+## Documentation
+
+Detailed technical documentation and evidence will be added progressively:
+
+- System Architecture
+- Fuel & Petroleum Economy
+- Vehicle Ecosystem
+- EMS & Emergency Services
+- Character System
+- TDM Multiplayer Architecture
+- Persistent Storage
+- Engineering Challenges
+- Development Timeline
+- Deployment Evidence
+- Community & Project Impact
+
+---
+
+## Project Status
+
+**Bloodline RP is a completed and operational FiveM/QBCore multiplayer server project.**
+
+This repository serves as the public technical case study and engineering record of its development.
