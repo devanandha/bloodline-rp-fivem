@@ -2,6 +2,14 @@
 
 > A fully integrated FiveM/QBCore roleplay server developed over approximately three months, combining persistent multiplayer systems, vehicle infrastructure, an interconnected petroleum economy, emergency services, character management, persistent storage, business systems and isolated competitive multiplayer.
 
+## Technical Architecture
+
+![Bloodline RP Technical Architecture](Bloodline%20RP%20Technical%20Architecture.png)
+
+The diagram summarises the project's layered architecture from the FiveM player client through Bloodline RP gameplay resources and shared framework integrations to server-side persistence. Detailed architecture and evidence are documented throughout this repository.
+
+---
+
 ## Project Overview
 
 **Bloodline RP** is a functioning FiveM roleplay server developed around the QBCore framework.
