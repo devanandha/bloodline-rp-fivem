@@ -671,7 +671,7 @@ The development environment also included local Apache and MySQL services used d
 
 Bloodline RP progressed beyond an isolated development exercise.
 
-The project was associated with an online roleplay community containing more than 150 Discord members and approximately 50 whitelist applications.
+The project was associated with an online roleplay community containing more than 219 Discord members and approximately 200 whitelist applications.
 
 This provided a real community context for the server rather than the project existing only as a local technical demonstration.
 
