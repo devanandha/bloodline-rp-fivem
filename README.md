@@ -25,6 +25,19 @@ Development involved much more than configuring individual resources. Systems ha
 
 ---
 
+## Key Outcomes
+
+- Developed and integrated a functioning FiveM/QBCore roleplay environment over approximately three months.
+- Engineered and debugged interconnected multiplayer systems spanning vehicles, fuel, EMS, character management, persistent storage, commerce and isolated TDM gameplay.
+- Implemented MySQL-backed persistence and cross-resource workflows using Lua, QBCore and oxmysql.
+- Worked across temporary and persistent state, transaction integrity, multiplayer session isolation, permissions, recovery and in-game edge cases.
+- Progressed the project beyond local feature development into a community-facing server environment with **219 Discord members** and **approximately 200 whitelist applications**.
+- Preserved the production implementation privately while documenting architecture, technical case studies, debugging evidence and sanitised deployment/database evidence in this portfolio.
+
+For reviewers, the fastest route through the project is the **Engineering Evidence Index**, followed by the individual technical case studies and visual demonstrations.
+
+---
+
 ## Portfolio Navigation
 
 | Review Area | Evidence |
