@@ -56,6 +56,80 @@ At the same time, players can interact with vehicles, businesses, housing/gang s
 
 ---
 
+## 1A. Whitelist & First-Entry Onboarding
+
+Bloodline RP uses a whitelist-based entry process before a player can enter the city.
+
+The player journey begins outside the game:
+
+    Discord Community
+          |
+          v
+    Whitelist Application
+          |
+          v
+    Admin Review
+          |
+          v
+    Whitelist Granted
+       [Passport Role]
+          |
+          v
+    City Entry Link
+          |
+          v
+    Character Creation
+          |
+          v
+    Appearance / Clothing
+          |
+          v
+    Enter Bloodline RP
+          |
+          v
+    Starter Provisioning
+       +-------------+
+       |             |
+       v             v
+    Custom Car     $10,000 Cash
+                     +
+                   $10,000 Bank
+          |
+          v
+    Begin Roleplay
+
+The whitelist stage provides an access-control boundary between the public Discord community and the in-game city.
+
+After approval, the player receives the required whitelist/passport role and the route into the city. The player then completes character creation and appearance/clothing selection before entering the roleplay environment.
+
+On initial entry, the player receives the documented starter provision:
+
+- A custom-made starter car
+- $10,000 cash
+- $10,000 bank balance
+
+After onboarding, the player is free to participate in the wider Bloodline RP environment subject to the server's roleplay rules.
+
+This creates a clear transition:
+
+    Community
+       |
+       v
+    Whitelist
+       |
+       v
+    Identity Creation
+       |
+       v
+    Starter Provisioning
+       |
+       v
+    Open Roleplay
+
+This onboarding flow should be considered part of the overall player journey rather than a separate administrative process.
+
+---
+
 ## 1. Character Entry
 
 The documented character lifecycle begins when a player connects to the server.
