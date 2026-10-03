@@ -364,7 +364,7 @@ Documents the FiveM/txAdmin runtime environment, Bloodline resources, MySQL arch
 
 ## Community & Operational Context
 
-Documents the community context surrounding the project, including 150+ Discord members and approximately 50 whitelist applications.
+Documents the community context surrounding the project, including 219 Discord members and approximately 200 whitelist applications.
 
 [Community Adoption & Operational Context](evidence/community-adoption.md)
 
