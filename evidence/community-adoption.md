@@ -46,11 +46,11 @@ As the server environment expanded, engineering decisions increasingly needed to
 
 During the documented project period, Bloodline RP had:
 
-    150+ Discord community members
+    219+ Discord community members
 
 and approximately:
 
-    50 whitelist applications
+    200 whitelist applications
 
 Whitelist applications represented prospective players seeking access to the roleplay environment.
 
