@@ -25,6 +25,23 @@ Development involved much more than configuring individual resources. Systems ha
 
 ---
 
+## Portfolio Navigation
+
+| Review Area | Evidence |
+|---|---|
+| System overview | [Technical Architecture](docs/architecture.md) |
+| End-to-end player experience | [Player Journey & Integrated Gameplay Loop](evidence/player-journey.md) |
+| Reviewer evidence map | [Engineering Evidence Index](evidence/evidence-index.md) |
+| Development progression | [Development Timeline](evidence/development-timeline.md) |
+| Engineering/debugging case studies | [Engineering Challenges](evidence/engineering-challenges.md) |
+| Runtime/deployment context | [Deployment Evidence](evidence/deployment-evidence.md) |
+| Database design | [Database Architecture](evidence/database/database-architecture.md) |
+| Sanitised persistence evidence | [Schema Inventory](evidence/database/schema-inventory.md) |
+| Community/operational context | [Community Adoption](evidence/community-adoption.md) |
+| Visual evidence | [Demonstrations](demonstrations/) |
+
+---
+
 # What I Worked On
 
 My work on Bloodline RP covered the design, development, configuration, integration, testing and debugging of the server and its interconnected systems.
@@ -389,6 +406,8 @@ Documents the community context surrounding the project, including 219 Discord m
 | Overall architecture | [Architecture](docs/architecture.md) | [Deployment Evidence](evidence/deployment-evidence.md) |
 | Development progression | — | [Development Timeline](evidence/development-timeline.md) |
 | Operational context | — | [Community Adoption](evidence/community-adoption.md) |
+| Player onboarding & gameplay loop | [Player Journey](evidence/player-journey.md) | [Engineering Evidence Index](evidence/evidence-index.md) |
+| Database architecture & persistence | [Database Architecture](evidence/database/database-architecture.md) | [Schema Inventory](evidence/database/schema-inventory.md) |
 
 ---
 
@@ -587,14 +606,21 @@ These demonstrations are intended to complement the technical documentation with
     |   +-- interactive-npc-marketplace.md
     |
     +-- evidence/
+    |   +-- evidence-index.md
+    |   +-- player-journey.md
     |   +-- development-timeline.md
     |   +-- engineering-challenges.md
     |   +-- deployment-evidence.md
     |   +-- community-adoption.md
+    |   +-- database/
+    |       +-- database-architecture.md
+    |       +-- schema-inventory.md
     |
     +-- demonstrations/
+        +-- architecture/
         +-- runtime/
         +-- database/
+        +-- player-journey/
         +-- tdm/
         +-- fuel/
         +-- vehicles/
