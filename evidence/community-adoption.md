@@ -6,7 +6,7 @@ Bloodline RP was developed as a functioning FiveM roleplay server intended for u
 
 During the project period, the community reached:
 
-- **219+ Discord members**
+- **219 Discord members**
 - **Approximately 200 whitelist applications**
 
 The server was developed in connection with the **Gundu Gaming** streaming/community environment.
@@ -46,7 +46,7 @@ As the server environment expanded, engineering decisions increasingly needed to
 
 During the documented project period, Bloodline RP had:
 
-    219+ Discord community members
+    219 Discord community members
 
 and approximately:
 
@@ -66,7 +66,7 @@ A whitelist process was used as part of player onboarding.
 
 This meant that the project operated within a controlled community model rather than providing completely unrestricted access.
 
-The existence of approximately 50 whitelist applications created an operational requirement to consider:
+The existence of approximately 200 whitelist applications created an operational requirement to consider:
 
 - Player identity
 - Character creation
@@ -330,7 +330,7 @@ Similarly, whitelist applications represent interest in joining the environment 
 For this reason, this repository reports the figures specifically as:
 
 - **150+ Discord community members**
-- **Approximately 50 whitelist applications**
+- **Approximately 200 whitelist applications**
 
 rather than converting them into unsupported player or usage statistics.
 
@@ -340,7 +340,7 @@ rather than converting them into unsupported player or usage statistics.
 
 Bloodline RP was developed within a real community-oriented context rather than solely as a local coding demonstration.
 
-The project combined approximately three months of development with a community that reached more than 150 Discord members and generated approximately 50 whitelist applications.
+The project combined approximately three months of development with a community that reached more than 150 Discord members and generated approximately 200 whitelist applications.
 
 This operational context helped turn technical requirements into practical engineering problems involving persistence, multiplayer state, permissions, administration, recovery and usability.
 
