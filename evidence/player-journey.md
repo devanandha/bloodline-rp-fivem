@@ -440,6 +440,36 @@ These systems provide communication channels that connect players and server org
 
 ---
 
+## 12A. Administration & Rule Enforcement
+
+Bloodline RP also includes an administrative oversight layer.
+
+Administrators monitor the server and player activity to help enforce the server's roleplay rules.
+
+The high-level model is:
+
+    Player Activity
+          |
+          v
+    Administrative Monitoring
+          |
+      +---+---+
+      |       |
+      v       v
+    Compliant  Rule Violation
+      |           |
+      v           v
+   Continue    Consequences
+    Playing
+
+The administrative layer therefore sits across the wider player journey rather than being limited to a single gameplay system.
+
+Players are expected to follow Bloodline RP rules while participating in the city. Where administrators identify rule-breaking behaviour, consequences can be applied according to the server's rules and administrative procedures.
+
+This provides an additional governance layer alongside the technical gameplay systems.
+
+---
+
 ## 12. Competitive Gameplay
 
 Bloodline RP also contains a separate competitive/TDM environment.
