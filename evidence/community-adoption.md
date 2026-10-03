@@ -6,8 +6,8 @@ Bloodline RP was developed as a functioning FiveM roleplay server intended for u
 
 During the project period, the community reached:
 
-- **150+ Discord members**
-- **Approximately 50 whitelist applications**
+- **219+ Discord members**
+- **Approximately 200 whitelist applications**
 
 The server was developed in connection with the **Gundu Gaming** streaming/community environment.
 
