@@ -1,314 +1,622 @@
-# Bloodline RP — FiveM Roleplay Server
+# Bloodline RP — FiveM Roleplay Server Engineering Project
 
-> A production multiplayer roleplay server built on the FiveM/QBCore ecosystem, developed, customised, deployed and operated over approximately three months.
-
-Bloodline RP is a heavily customised FiveM roleplay server designed around interconnected gameplay, economy, vehicle, emergency-service, character and competitive multiplayer systems.
-
-The project involved designing custom gameplay systems, integrating and extending QBCore resources, managing MySQL-backed persistence, building user interfaces, configuring multiplayer infrastructure, debugging cross-resource issues, deploying the server and supporting a live player community.
-
-Rather than publishing the production source code, this repository documents the **system architecture, engineering decisions, development process, technical challenges, deployment and demonstrated functionality** of the project.
-
----
+> A fully integrated FiveM/QBCore roleplay server developed over approximately three months, combining persistent multiplayer systems, vehicle infrastructure, an interconnected petroleum economy, emergency services, character management, persistent storage, business systems and isolated competitive multiplayer.
 
 ## Project Overview
 
-**Platform:** FiveM  
-**Framework:** QBCore  
-**Primary Language:** Lua  
-**Database:** MySQL  
-**Database Administration:** phpMyAdmin  
-**Development Environment:** XAMPP / Apache / MySQL  
-**Project:** Bloodline RP  
-**Development Period:** Approximately 3 months  
-**Status:** Fully working multiplayer server
+**Bloodline RP** is a functioning FiveM roleplay server developed around the QBCore framework.
 
-The server combines custom Bloodline systems with selected third-party FiveM/QBCore resources. Custom components were developed and integrated around a shared server architecture so that systems such as vehicles, fuel, character management, emergency services, businesses, storage and competitive multiplayer could operate together.
+The project grew from a server environment into an interconnected multiplayer platform containing custom-developed systems, modified integrations, persistent MySQL-backed state and third-party FiveM infrastructure.
 
----
+Development involved much more than configuring individual resources. Systems had to operate together across vehicle ownership, inventory, characters, businesses, multiplayer sessions, persistence, permissions and failure recovery.
 
-## Core Systems
+### Project Context
 
-### Fuel & Petroleum Economy
-
-An interconnected fuel ecosystem covering vehicle refuelling, multiple fuel grades, fuel consumption, jerrycan handling, station inventory, wholesale fuel supply, company finances, staff permissions and tanker-based station replenishment.
-
-The architecture connects:
-
-`Fuel Company → Fuel Businesses → Fuel Stations → Vehicle Refuelling`
+- **Development period:** approximately 3 months
+- **Platform:** FiveM
+- **Framework:** QBCore
+- **Primary development:** Lua
+- **Database:** MySQL
+- **Database integration:** oxmysql
+- **Administration/runtime:** txAdmin
+- **Database administration:** phpMyAdmin
+- **Community:** 219 Discord members
+- **Whitelist interest:** approximately 200 applications
 
 ---
 
-### Vehicle Ecosystem
+# What I Worked On
 
-A connected vehicle architecture covering:
+My work on Bloodline RP covered the design, development, configuration, integration, testing and debugging of the server and its interconnected systems.
 
-- Vehicle dealership and purchasing
-- Persistent vehicle ownership
-- Vehicle keys and access control
-- Locking and hotwire behaviour
-- Garage storage and retrieval
-- Job-specific vehicle access
-- Engine-state management
-- Fuel integration
-- Test-drive isolation
+Key engineering areas included:
 
-The systems were designed to communicate across separate resources rather than operating as independent gameplay scripts.
+- Lua-based FiveM development
+- QBCore integration
+- Client/server event architecture
+- MySQL-backed persistence
+- Multiplayer session state
+- Routing buckets
+- Vehicle ownership and access
+- Inventory metadata
+- Business and transaction logic
+- Character lifecycle management
+- EMS workflows
+- NUI integration
+- NPC interactions
+- Persistent world objects
+- Permissions and administration
+- Failure recovery
+- Cross-resource debugging
+- In-game testing and iterative refinement
 
----
-
-### EMS & Emergency Services
-
-A custom emergency-services system incorporating:
-
-- Death and emergency interaction flow
-- CPR/revival and treatment
-- EMS duty management
-- Staff ranks and permissions
-- EMS payments and organisational finances
-- Uniform handling
-- EMS vehicle access
-- Hospital interactions
-- Lift and helipad functionality
+The server also uses third-party frameworks, resources, maps, assets and infrastructure. These are distinguished from Bloodline-specific engineering throughout this repository.
 
 ---
 
-### Dual Character System
+# Featured Engineering Systems
 
-A database-backed two-character system providing:
+## 1. TDM & Multiplayer Session System
 
-- Persistent character slots
-- Administrative second-slot unlocking
-- Character ownership validation
-- Character creation
-- Appearance integration
-- Persistent character information
-- Spawn selection
-- Cinematic character previews
-- Recovery handling for appearance-related issues
-
----
-
-### TDM & Multiplayer Session System
-
-An isolated competitive multiplayer environment running alongside the main RP server.
+An isolated competitive multiplayer environment operating inside the wider roleplay server.
 
 Features include:
 
 - Private team rooms
-- Public free-for-all environments
+- Public free-for-all sessions
 - Routing-bucket isolation
-- Multiple playable maps
-- Custom combat/damage rules
-- TDM-only weapons and ammunition
-- Match scoring
+- Configurable team matches
+- Team scoring
+- Temporary TDM weapons
+- Finite ammunition
+- Custom combat behaviour
 - Spawn protection
 - Redzone handling
 - Fall recovery
-- Crash/reconnect recovery
-- Temporary team clothing
-- Custom NUI interface
+- Temporary team outfits
+- Custom NUI
+- Disconnect handling
+- Room ownership transfer
+- Restart/crash recovery
 
-The TDM environment was deliberately isolated so that normal RP inventory, economy, jobs, garages and emergency-service systems were not modified by competitive matches.
+A major architectural requirement was preventing temporary TDM state from interfering with normal roleplay inventory, economy, character and EMS state.
 
----
-
-### Persistent Tent Storage
-
-A deployable private-storage system incorporating:
-
-- Purchasable tent packs
-- World-object placement
-- Placement validation
-- Rotation and preview controls
-- Persistent private inventory
-- PIN-protected access
-- Tent ownership
-- Safe deletion rules
-- Inventory-system compatibility handling
+**Technical case study:**  
+[TDM & Multiplayer Session System](docs/tdm-multiplayer-system.md)
 
 ---
 
-### Interactive NPC Marketplace
+## 2. Fuel & Petroleum Economy
 
-A roleplay marketplace system using an interactive NPC delivery workflow.
+What began as vehicle refuelling developed into an interconnected petroleum economy.
 
-It includes:
+Architecture:
 
-- Interactive world location
-- Custom shop interface
-- Multi-item basket purchasing
-- Business balance management
-- Manager/admin controls
-- NPC handover sequences
+    Fuel Company
+         |
+         v
+    Central Depot
+         |
+         v
+    Wholesale Supply
+         |
+         v
+    Fuel Businesses
+         |
+         v
+    Fuel Stations
+         |
+         v
+    Player Refuelling
+         |
+         v
+    Vehicles
+
+Features include:
+
+- Multiple fuel grades
+- Vehicle fuel consumption
+- Vehicle tank capacities
+- Dynamic fuel-cap interaction
+- Nozzle/hose behaviour
+- Persistent jerrycan capacity
+- Fuel businesses
+- Company management
+- Central depot stock
+- Wholesale pricing
+- Staff permissions
+- Delivery workflows
+- Sales and operational records
+
+One of the most significant debugging tasks involved maintaining jerrycan fuel state through inventory metadata and preventing state resets through normal inventory operations.
+
+**Technical case study:**  
+[Fuel & Petroleum Economy](docs/fuel-petroleum-economy.md)
+
+---
+
+## 3. Vehicle Ecosystem
+
+The vehicle architecture connects purchasing, ownership, access, storage, engine behaviour and fuel.
+
+    Vehicle Shop
+         |
+         v
+      Purchase
+         |
+         v
+      Ownership
+         |
+       +-+-+
+       |   |
+       v   v
+     Keys Garage
+       |   |
+       +-+-+
+         |
+         v
+      Engine
+         |
+         v
+       Fuel
+
+Features include:
+
+- Vehicle purchasing
+- Bank payments
+- Persistent ownership
+- Vehicle keys
+- Test drives
+- Temporary test-drive authorisation
+- Persistent showroom displays
+- Public garages
+- Job-specific vehicles
+- Engine control
+- Fuel integration
+- NUI workflows
+
+**Technical case study:**  
+[Vehicle Ecosystem](docs/vehicle-ecosystem.md)
+
+---
+
+## 4. EMS & Emergency Services
+
+A structured emergency-services system connecting medical gameplay with staff, financial and vehicle systems.
+
+Features include:
+
+- CPR
+- Revival
+- Treatment
+- Duty management
+- Staff ranks
+- Permissions
+- Service payments
+- EMS financial accounts
+- Transaction history
+- Service history
+- Night-duty bonuses
+- Uniforms
+- EMS vehicles
+- Garage integration
+- Lift/helipad access
+- Administrative functionality
+
+The EMS architecture is intentionally separated from competitive TDM elimination state.
+
+**Technical case study:**  
+[EMS & Emergency Services](docs/ems-emergency-services.md)
+
+---
+
+## 5. Dual Character System
+
+A persistent character-management workflow supporting multiple roleplay identities.
+
+Features include:
+
+- Two character slots
+- Controlled second-slot access
+- Administrative unlocking
+- Ownership validation
+- Persistent slot state
+- Character selection
+- Cinematic previews
+- Appearance integration
+- Spawn selection
+- Appearance recovery
+
+The system required separation between account-level access state and character-specific persistent state.
+
+**Technical case study:**  
+[Dual Character System](docs/dual-character-system.md)
+
+---
+
+## 6. Persistent Tent Storage
+
+A persistent placeable storage system combining inventory state, world objects and access control.
+
+Features include:
+
+- Placeable tents
+- Placement preview
+- Ground/height validation
+- Persistent coordinates
+- One-tent-per-player control
+- Private storage
+- 50 configured slots
+- 500 kg configured storage capacity
+- PIN access
+- Failed-attempt handling
+- Removal safeguards
+- Administrative controls
+
+A key engineering requirement was ensuring that inventory items were not consumed until successful world placement had been confirmed.
+
+**Technical case study:**  
+[Persistent Tent Storage](docs/persistent-tent-storage.md)
+
+---
+
+## 7. Interactive NPC Marketplace
+
+An interactive NPC commerce workflow connecting world interaction, basket state, payments and inventory delivery.
+
+Features include:
+
+- NPC interaction
+- Product selection
+- Basket state
+- Cash transactions
+- Server-side validation
 - Inventory delivery
-- Animation and interaction states
-- Cross-system item integration
+- Handover interactions
+- Management controls
+- Administrative controls
+- World placement and interaction refinement
+
+**Technical case study:**  
+[Interactive NPC Marketplace](docs/interactive-npc-marketplace.md)
 
 ---
 
-## Engineering & Debugging
+# Technical Architecture
 
-A significant part of Bloodline RP development involved resolving integration and runtime problems across interconnected resources.
+At a high level:
 
-Examples included:
+    Players
+       |
+       v
+    FiveM Client
+       |
+       v
+    Bloodline Resources
+       |
+       +----------------------+
+       |                      |
+       v                      v
+    QBCore              FiveM / External
+    Framework             Dependencies
+       |
+       v
+    Server-Side Logic
+       |
+       v
+     oxmysql
+       |
+       v
+      MySQL
 
-- Vehicle key state not synchronising immediately after vehicle purchase
-- Test-drive vehicles incorrectly triggering normal hotwire behaviour
-- Job vehicles requiring specialised access rules
-- Fuel nozzle targeting behaving differently across vehicle dimensions
-- Jerrycan metadata and durability persistence
-- Character appearance fallback issues
-- Inventory UI conflicts with custom interfaces
-- World props spawning above or below terrain
-- Multiplayer players being affected by another player's room departure
-- TDM damage conflicting with normal GTA/QBCore death behaviour
-- Unsafe map spawn positions and collision loading
-- Restoring normal player state after leaving isolated gameplay sessions
+The project contains both temporary gameplay state and persistent database-backed state.
 
-These issues were addressed through iterative testing, debugging, configuration changes, integration work and repeated validation in the running server environment.
+Examples of persistent state include:
 
----
+- Character-slot access
+- Vehicle ownership
+- EMS staff and transactions
+- Fuel-company state
+- Fuel-business state
+- Station stock
+- Business records
+- Persistent storage
 
-## Architecture
-
-Bloodline RP follows a modular resource architecture.
-
-```text
-                         BLOODLINE RP
-                              │
-             ┌────────────────┴────────────────┐
-             │                                 │
-          QBCore                           MySQL
-             │                                 │
-     ┌───────┼────────┐                Persistent Data
-     │       │        │
- Gameplay  Economy  Player Systems
-     │       │        │
-     │       │        ├── Dual Character
-     │       │        ├── Appearance
-     │       │        └── Inventory
-     │       │
-     │       ├── Fuel Company
-     │       ├── Fuel Businesses
-     │       ├── Electronics
-     │       └── Other Businesses
-     │
-     ├── Vehicle Ecosystem
-     ├── EMS
-     ├── Tent Storage
-     ├── NPC Marketplace
-     └── TDM
-```
-
-More detailed architecture documentation will be maintained in the `/docs` and `/architecture` sections of this repository.
+[View the complete architecture documentation](docs/architecture.md)
 
 ---
 
-## Development Approach
+# Engineering Evidence
 
-Development followed an iterative workflow:
+The repository is designed to document not only **what the server contains**, but also **how it was developed and debugged**.
 
-`Requirement → Design → Implementation → Integration → Testing → Debugging → Validation → Deployment`
+## Development Timeline
 
-Individual systems frequently required multiple revisions after testing them against real FiveM/QBCore behaviour.
+Documents the progression from server foundation through persistence, vehicles, fuel, EMS, characters, multiplayer systems, integration and deployment.
 
-The project therefore represents not only feature implementation, but also practical experience in multiplayer state management, persistent data, resource integration, gameplay logic, UI integration, troubleshooting and server operations.
+[Development Timeline](evidence/development-timeline.md)
+
+## Engineering Challenges
+
+Detailed problem-solving examples including:
+
+- Jerrycan metadata persistence
+- Dynamic vehicle fuel-cap interaction
+- Vehicle ownership/key synchronisation
+- Test-drive state
+- TDM/RP state isolation
+- TDM weapon timing
+- Multiplayer room lifecycle
+- Spawn and fall recovery
+- Character appearance recovery
+- Tent transaction integrity
+- Storage access control
+- Marketplace transaction integrity
+- Cross-resource debugging
+
+[Engineering Challenges & Problem Solving](evidence/engineering-challenges.md)
+
+## Deployment Evidence
+
+Documents the FiveM/txAdmin runtime environment, Bloodline resources, MySQL architecture, database structures and development infrastructure.
+
+[Deployment & Runtime Evidence](evidence/deployment-evidence.md)
+
+## Community & Operational Context
+
+Documents the community context surrounding the project, including 150+ Discord members and approximately 50 whitelist applications.
+
+[Community Adoption & Operational Context](evidence/community-adoption.md)
 
 ---
 
-## Community & Operations
+# Evidence Map
 
-Bloodline RP progressed beyond a local development environment into an operational multiplayer community.
-
-The project included:
-
-- Server deployment and administration
-- Discord-based community management
-- Player onboarding
-- Whitelist/application management
-- Live troubleshooting
-- Resource updates
-- Gameplay testing
-- Ongoing server configuration
-
-Technical and community evidence will be documented separately in this repository.
+| Engineering Area | Case Study | Supporting Evidence |
+|---|---|---|
+| Multiplayer architecture | [TDM](docs/tdm-multiplayer-system.md) | [Engineering Challenges](evidence/engineering-challenges.md) |
+| Petroleum economy | [Fuel System](docs/fuel-petroleum-economy.md) | [Development Timeline](evidence/development-timeline.md) |
+| Vehicle lifecycle | [Vehicle Ecosystem](docs/vehicle-ecosystem.md) | [Engineering Challenges](evidence/engineering-challenges.md) |
+| Emergency services | [EMS](docs/ems-emergency-services.md) | [Deployment Evidence](evidence/deployment-evidence.md) |
+| Character management | [Dual Character](docs/dual-character-system.md) | [Engineering Challenges](evidence/engineering-challenges.md) |
+| Persistent world state | [Tent Storage](docs/persistent-tent-storage.md) | [Engineering Challenges](evidence/engineering-challenges.md) |
+| Transaction systems | [NPC Marketplace](docs/interactive-npc-marketplace.md) | [Engineering Challenges](evidence/engineering-challenges.md) |
+| Overall architecture | [Architecture](docs/architecture.md) | [Deployment Evidence](evidence/deployment-evidence.md) |
+| Development progression | — | [Development Timeline](evidence/development-timeline.md) |
+| Operational context | — | [Community Adoption](evidence/community-adoption.md) |
 
 ---
 
-## Repository Scope
+# Development Approach
+
+Development followed an iterative engineering cycle:
+
+    Requirement
+        |
+        v
+    Research & Design
+        |
+        v
+    Implementation
+        |
+        v
+    In-Game Testing
+        |
+        v
+    Issue Discovery
+        |
+        v
+    Debugging
+        |
+        v
+    Revision
+        |
+        v
+    Integration Testing
+        |
+        v
+    Deployment
+
+When problems appeared, the affected state and resource boundaries were investigated, relevant technical references and existing framework patterns were reviewed where useful, the implementation was revised, and the behaviour was retested in-game.
+
+Several systems went through many revisions before reaching their final working behaviour.
+
+---
+
+# Key Engineering Themes
+
+Bloodline RP demonstrates practical work involving:
+
+### Persistent State
+
+Determining which information should survive sessions and storing it appropriately.
+
+### Temporary State
+
+Keeping match, preview, test-drive and interaction state isolated from permanent player data.
+
+### Server Authority
+
+Moving important gameplay and transaction decisions away from purely client-controlled state.
+
+### Cross-Resource Integration
+
+Connecting independently operating FiveM resources into complete gameplay lifecycles.
+
+### Transaction Integrity
+
+Ensuring operations involving money, inventory or persistent objects complete in a controlled sequence.
+
+### Multiplayer State
+
+Managing players, rooms, routing buckets, teams, scores and disconnect behaviour.
+
+### Recovery
+
+Handling invalid appearance state, interrupted TDM sessions, unsafe spawns and failed interactions.
+
+### Iterative Debugging
+
+Testing systems inside the actual game environment and revising behaviour based on observed edge cases.
+
+---
+
+# Technology Stack
+
+| Area | Technology |
+|---|---|
+| Multiplayer platform | FiveM |
+| Framework | QBCore |
+| Primary scripting | Lua |
+| Database | MySQL |
+| Database bridge | oxmysql |
+| Database administration | phpMyAdmin |
+| Local development services | XAMPP / Apache / MySQL |
+| Server administration | txAdmin |
+| UI | FiveM NUI / HTML-based interfaces |
+| Targeting / interaction | FiveM/QBCore ecosystem integrations |
+| Version control & documentation | Git / GitHub |
+
+---
+
+# Third-Party Components & Attribution
+
+Bloodline RP uses the wider FiveM open-source and commercial resource ecosystem.
+
+Examples of external technologies or dependencies used within the environment include:
+
+- FiveM
+- QBCore
+- oxmysql
+- ox_target
+- PolyZone
+- pma-voice
+- Appearance resources
+- Banking resources
+- Map resources
+- Vehicle assets
+- Other FiveM resources and dependencies
+
+The presence of a third-party resource within the server does **not** represent a claim of original authorship.
+
+This portfolio focuses on the Bloodline-specific development, modification, configuration, integration, debugging and system engineering performed around the server.
+
+Where external resources were used, their original ownership and licensing remain with their respective authors.
+
+---
+
+# Public Repository Scope
 
 The complete Bloodline RP production source code is **not publicly distributed**.
 
-Bloodline RP contains custom production systems developed specifically for the live server. The complete implementation is maintained privately to protect proprietary implementation details, server security and the integrity of custom gameplay systems.
+This repository instead provides:
 
-This repository therefore focuses on:
-
-- System architecture
+- Technical architecture
+- System case studies
 - Engineering decisions
 - Development methodology
-- Technical case studies
-- Debugging and problem solving
+- Debugging case studies
 - Deployment evidence
-- Demonstrations
-- Sanitised technical documentation
+- Community context
+- Sanitised demonstrations
 
-Where appropriate, diagrams and illustrative examples may be provided without exposing production implementation.
-
----
-
-## Third-Party Components & Attribution
-
-Bloodline RP is built within the wider FiveM and QBCore ecosystem and integrates selected third-party resources.
-
-Third-party frameworks, libraries, maps, assets and resources remain the work of their respective authors.
-
-This portfolio distinguishes between:
-
-- **Custom Bloodline systems**
-- **Modified or integrated resources**
-- **Third-party infrastructure and dependencies**
-
-No third-party component is represented as original Bloodline development.
+This approach provides evidence of the engineering project while protecting proprietary implementation details and server security.
 
 ---
 
-## Security & Privacy
+# Security & Privacy
 
-Public documentation intentionally excludes:
+The repository intentionally excludes:
 
-- Server credentials
 - Database passwords
-- API keys and tokens
-- FiveM/Cfx license keys
-- Security configuration
+- API keys
+- FiveM/Cfx licence keys
+- Tokens
 - Webhooks
+- Private certificates
+- Security configuration
+- Player IP addresses
+- Discord identifiers
+- Email addresses
 - Private player information
-- Player identifiers
 - Production database records
-- Proprietary production source code
+- Administrative credentials
+
+Any runtime or community screenshots published in this repository should be sanitised before publication.
 
 ---
 
-## Documentation
+# Demonstrations
 
-Detailed technical documentation and evidence will be added progressively:
+Sanitised visual evidence will be organised under:
 
-- System Architecture
-- Fuel & Petroleum Economy
-- Vehicle Ecosystem
-- EMS & Emergency Services
-- Character System
-- TDM Multiplayer Architecture
-- Persistent Storage
-- Engineering Challenges
-- Development Timeline
-- Deployment Evidence
-- Community & Project Impact
+    demonstrations/
+    |
+    +-- runtime/
+    +-- database/
+    +-- tdm/
+    +-- fuel/
+    +-- vehicles/
+    +-- ems/
+    +-- characters/
+    +-- storage/
+
+These demonstrations are intended to complement the technical documentation without exposing private production source code.
 
 ---
 
-## Project Status
+# Repository Structure
 
-**Bloodline RP is a completed and operational FiveM/QBCore multiplayer server project.**
+    bloodline-rp-fivem/
+    |
+    +-- README.md
+    |
+    +-- docs/
+    |   +-- architecture.md
+    |   +-- tdm-multiplayer-system.md
+    |   +-- fuel-petroleum-economy.md
+    |   +-- vehicle-ecosystem.md
+    |   +-- ems-emergency-services.md
+    |   +-- dual-character-system.md
+    |   +-- persistent-tent-storage.md
+    |   +-- interactive-npc-marketplace.md
+    |
+    +-- evidence/
+    |   +-- development-timeline.md
+    |   +-- engineering-challenges.md
+    |   +-- deployment-evidence.md
+    |   +-- community-adoption.md
+    |
+    +-- demonstrations/
+        +-- runtime/
+        +-- database/
+        +-- tdm/
+        +-- fuel/
+        +-- vehicles/
+        +-- ems/
+        +-- characters/
+        +-- storage/
 
-This repository serves as the public technical case study and engineering record of its development.
+---
+
+# Project Status
+
+**Bloodline RP reached a functioning integrated FiveM server stage after approximately three months of development, testing, debugging and system integration.**
+
+The project demonstrates the progression from individual gameplay features toward interconnected multiplayer software involving:
+
+    Persistent State
+          +
+    Multiplayer Sessions
+          +
+    Database Architecture
+          +
+    Transaction Logic
+          +
+    Cross-System Integration
+          +
+    Failure Recovery
+          +
+    Community-Facing Operation
+
+The public repository serves as the technical record of that engineering work while the production implementation remains private.
